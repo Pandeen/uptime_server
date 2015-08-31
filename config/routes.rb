@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
   authenticated :user do
     devise_scope :user do
-      root to: "pages#dashboard"
+      get '/', to: redirect('/dashboard')
     end
   end
   
