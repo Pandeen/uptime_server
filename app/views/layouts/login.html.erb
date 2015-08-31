@@ -10,18 +10,9 @@
 </head>
 <body>
 
-  <div class='navbar navbar-default navbar-static-top'>
-    <div class='container'>
-      <div class="navbar-header">
-        <a class="navbar-brand" href="#">Uptime</a>
-      </div>
-      <ul class='nav navbar-nav navbar-right'>
-        <li><%= link_to 'Dashboard', pages_dashboard_path %></li>
-        <li><%= link_to 'Settings', pages_settings_path %></li>
-      </ul>
-    </div>
+  <div class='login'>
+    <%= yield %>
   </div>
-  <%= yield %>
 
 </body>
 </html>

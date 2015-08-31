@@ -1,4 +1,31 @@
 Rails.application.routes.draw do
+  devise_for :users, path: "auth", path_names: { 
+    sign_in: 'login', 
+    sign_out: 'logout', 
+    password: 'secret', 
+    confirmation: 'verification', 
+    unlock: 'unlock', 
+    registration: 'register', 
+    sign_up: 'register' 
+  }
+
+  
+  authenticated :user do
+    devise_scope :user do
+      root to: "pages#dashboard"
+    end
+  end
+  
+  unauthenticated do
+    devise_scope :user do
+      root to: "users/sessions#new", :as => "unauthenticated"
+    end
+  end
+  
+  get 'pages/dashboard', path: '/dashboard'
+
+  get 'pages/settings', path: '/settings'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
