@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  
   devise_for :users, path: "auth", path_names: { 
     sign_in: 'login', 
     sign_out: 'logout', 
@@ -9,7 +10,6 @@ Rails.application.routes.draw do
     sign_up: 'register' 
   }
 
-  
   authenticated :user do
     devise_scope :user do
       root to: "pages#dashboard"
