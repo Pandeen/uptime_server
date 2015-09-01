@@ -1,6 +1,11 @@
 <div class='container'>
   <div class='row'>
     <div class='col-sm-12'>
+      <div ng-controller='Clients'>
+        <ul ng-repeat='client in clients'>
+          <li>{{ client.name }}</li>
+        </ul>
+      </div>
     </div>
   </div>
 </div>

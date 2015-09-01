@@ -2,6 +2,11 @@ class Api::V1::ClientsController < ApplicationController
     
     before_action :authenticate_user!
     
+    def index
+        clients = Client.where(:user_id == current_user.id)
+        render json: clients, status: :ok
+    end
+    
     def show
         client = Client.where(show_params).first
         if client == nil

@@ -20,3 +20,7 @@ app.controller 'Header', ($scope) ->
             return false
         else
             return true
+            
+app.controller 'Clients', ($scope, $http) ->
+    $http.get('https://uptime-server-swillett.c9.io/api/v1/clients').success (data, status, headers, config) ->
+        $scope.clients = data
