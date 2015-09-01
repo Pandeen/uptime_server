@@ -5,21 +5,23 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.min.js"></script>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
 
-  <div class='navbar navbar-default navbar-static-top'>
+<body ng-app='Uptime'>
+
+  <div class='navbar navbar-default navbar-static-top' ng-controller='Header'>
     <div class='container'>
       <div class="navbar-header">
         <a class="navbar-brand" href="#">Uptime</a>
-        <ul class='nav navbar-nav navbar-pills dashboard-stats'>
-          <li><a>Online</a></li>
-          <li><a>Offline</a></li>
-          <li><a>Errors</a></li>
-        </ul>
+
       </div>
+      <ul class='nav navbar-nav navbar-pills navbar-left dashboard-stats'>
+        <li ng:class="{true:'active', false:''}[onlineTab]"><a ng-click='onlineTab = setOnlineTab()'>Online</a></li>
+        <li ng:class="{true:'active', false:''}[offlineTab]"><a ng-click='offlineTab = setOfflineTab()'>Offline</a></li>
+      </ul>
       <ul class='nav navbar-nav navbar-right'>
         <li><%= link_to 'Dashboard', pages_dashboard_path %></li>
         <li><%= link_to 'Settings', pages_settings_path %></li>
