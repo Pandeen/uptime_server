@@ -7,6 +7,9 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 User.destroy_all
+Client.destroy_all
 
 user = User.new(email: 'admin@pandeen.com', password: 'Pas$w0rd')
 user.save!
+
+Client.create(name: 'Test Pinger', user_id: user[:id])

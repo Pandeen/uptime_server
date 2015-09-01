@@ -22,6 +22,12 @@ Rails.application.routes.draw do
     end
   end
   
+  namespace 'api' do
+    namespace 'v1' do
+      resources :clients, only: [:show, :create]
+    end
+  end
+  
   get 'pages/dashboard', path: '/dashboard'
 
   get 'pages/settings', path: '/settings'
