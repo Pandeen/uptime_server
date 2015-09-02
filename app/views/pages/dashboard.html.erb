@@ -1,18 +1,19 @@
+
 <div class='container'>
   <div class='row'>
-    <div class='col-sm-4'>
-      <h2 class='stats'>Clients <i class='glyphicon glyphicon-chevron-down'></i></h2> 
-      <span class='stats-online'><i class='glyphicon glyphicon-arrow-up'></i> Online: {{ clients.online }}</span> 
-      <span class='stats-errors'><i class='glyphicon glyphicon-warning-sign'></i> Errors: {{ clients.errors }}</span>
-      <span class='stats-offline'><i class='glyphicon glyphicon-arrow-down'></i> Offline: {{ clients.offline }}</span>
+    
+    <div id='stats' class='col-sm-9' ng-controller='Stats'>
+      <p class='stats-header'>
+        <span>Clients ({{ clients.length }})</span> 
+        <span>Nodes ({{ nodes.length }})</span>
+        <span class='stats-online'><i class='glyphicon glyphicon-arrow-up'></i> Online: {{ online }}</span> 
+        <span class='stats-errors'><i class='glyphicon glyphicon-warning-sign'></i> Errors: {{ errors }}</span>
+        <span class='stats-offline'><i class='glyphicon glyphicon-arrow-down'></i> Offline: {{ offline }}</span>
+      </p>
     </div>
-    <div class='col-sm-4 stats-overview'>
-      <h2 class='stats'>Nodes <i class='glyphicon glyphicon-chevron-down'></i></h2> 
-      <span class='stats-online'><i class='glyphicon glyphicon-arrow-up'></i> Online: {{ nodes.online }}</span> 
-      <span class='stats-errors'><i class='glyphicon glyphicon-warning-sign'></i> Errors: {{ nodes.errors }}</span>
-      <span class='stats-offline'><i class='glyphicon glyphicon-arrow-down'></i> Offline: {{ nodes.offline }}</span>
-    </div>
-    <div class='col-sm-4 edit-dashboard'>
+    
+    
+    <div class='col-sm-3 edit-dashboard'>
       <button type="button" class="btn btn-primary"><i class='glyphicon glyphicon-edit'></i> Edit Dashboard</button>
     </div>
   </div>

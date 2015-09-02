@@ -4,6 +4,14 @@
 
 app = angular.module 'Uptime', []
             
-#app.controller 'Clients', ($scope, $http) ->
-#    $http.get('https://uptime-server-swillett.c9.io/api/v1/clients').success (data, status, headers, config) ->
-#        $scope.clients = data
+app.controller 'Stats', ($scope, $http) ->
+    
+    $scope.online = 0
+    $scope.errors = 0
+    $scope.offline = 0
+    
+    $http.get('https://uptime-server-swillett.c9.io/api/v1/clients').success (data, status, headers, config) ->
+        $scope.clients = data
+    
+    $http.get('https://uptime-server-swillett.c9.io/api/v1/clients').success (data, status, headers, config) ->
+        $scope.nodes = data
